@@ -7,7 +7,9 @@ namespace AriumFramework
 {
     public class Arium
     {
-        private readonly Dictionary<string, GameObjectWrapper> _gameObjectCache = new Dictionary<string, GameObjectWrapper>();
+        private readonly Dictionary<string, GameObjectWrapper> _gameObjectCache =
+            new Dictionary<string, GameObjectWrapper>();
+
         private readonly Dictionary<Type, IInteraction> _interactions;
 
         public Arium(HashSet<IInteraction> interactions)
@@ -20,22 +22,45 @@ namespace AriumFramework
             }
         }
 
+        public void PerformAction(IInteraction interaction, string gameObjectName)
+        {
+            PerformAction(interaction, FindGameObject(gameObjectName));
+        }
+        
+        public void PerformAction(IInteraction interaction, GameObject gameObject)
+        {
+            PerformAction(interaction, new GameObjectWrapper(gameObject));
+        }
+        
+        public void PerformAction(Type interactionType, GameObject gameObject)
+        {
+            GameObjectWrapper objectWrapper = new GameObjectWrapper(gameObject);
+            PerformAction(interactionType, objectWrapper);
+        }
+        
         public void PerformAction(Type interactionType, string gameObjectName)
         {
-            _interactions[interactionType].PerformAction(GetObject(gameObjectName));
+            PerformAction(interactionType, FindGameObject(gameObjectName));
+        }
+        
+        public void PerformAction(Type interactionType, GameObjectWrapper gameObjectWrapper)
+        {
+            if (!_interactions.ContainsKey(interactionType)) throw new ArgumentException(); // TODO: Add custom exception
+            
+            PerformAction(_interactions[interactionType], gameObjectWrapper);
+        }
+        
+        public void PerformAction(IInteraction interaction, GameObjectWrapper objectWrapper)
+        {
+            interaction.PerformAction(objectWrapper);
         }
 
         public T GetComponent<T>(string gameObjectName) where T : Component
         {
-            return GetObject(gameObjectName).GetComponent<T>();
+            return FindGameObject(gameObjectName).GetComponent<T>();
         }
 
-        public string GetText(string gameObjectName)
-        {
-            return GetComponent<Text>(gameObjectName).text;
-        }
-
-        public GameObjectWrapper GetObject(string gameObjectName)
+        public GameObjectWrapper FindGameObject(string gameObjectName)
         {
             try
             {

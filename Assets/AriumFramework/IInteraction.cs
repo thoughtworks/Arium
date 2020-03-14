@@ -2,6 +2,6 @@
 {
     public interface IInteraction
     {
-        void PerformAction(GameObjectWrapper objectToBeClicked);
+        void PerformAction(GameObjectWrapper gameObject);
     }
 }

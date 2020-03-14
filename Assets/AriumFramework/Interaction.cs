@@ -5,16 +5,24 @@ namespace AriumFramework
 {
     public abstract class Interaction<T> : IInteraction where T : Component
     {
-        private readonly UnityAction<T> _action;
+        private UnityAction<T> _action;
 
         protected Interaction(UnityAction<T> action)
         {
             _action = action;
         }
-
-        public void PerformAction(GameObjectWrapper objectToBeClicked)
+        protected Interaction()
         {
-            _action.Invoke(objectToBeClicked.GetComponent<T>());
+        }
+
+        protected void SetAction(UnityAction<T> action)
+        {
+            _action = action;
+        }
+
+        public void PerformAction(GameObjectWrapper gameObject)
+        {
+            _action.Invoke(gameObject.GetComponent<T>());
         }
     }
 }

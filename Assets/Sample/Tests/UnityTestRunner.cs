@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using AriumFramework;
 using AriumFramework.Plugins.UnityInteractions;
@@ -10,7 +11,7 @@ using UnityEngine.UI;
 
 namespace Sample.Tests
 {
-    public class FrameworkRunner
+    public class UnityTestRunner
     {
         private Arium _arium;
         
@@ -20,26 +21,26 @@ namespace Sample.Tests
             _arium = new Arium(new HashSet<IInteraction>
             {
                 new UnityButtonClick(),
-                new UnityPushObject()
+                new UnityPushObject(),
             });
 
-            SceneManager.LoadScene("SampleScene");
+            SceneManager.LoadScene("UnitySampleScene");
         }
         
         [UnityTest]
         public IEnumerator ShouldChangeTextOnButtonClick()
         {
             yield return new WaitForSeconds(2);
-            Text display = _arium.GetComponent<Text>("Display");
+            GameObjectWrapper display = _arium.FindGameObject("Display");
 
 //            string display = _arium.GetText("Display");
 
-            Assert.AreEqual("New Text", display.text);
+            Assert.AreEqual("New Text", _arium.FindGameObject("Display").GetText());
             
             _arium.PerformAction(typeof(UnityButtonClick), "Button");
             yield return null;
             
-            Assert.AreEqual("Button Clicked!", display.text);
+            Assert.AreEqual("Button Clicked!", display.GetText());
         }
         
         [UnityTest]
@@ -48,7 +49,7 @@ namespace Sample.Tests
             const float force = 25;
             
             yield return new WaitForSeconds(2);
-            GameObjectWrapper box = _arium.GetObject("Box");
+            GameObject box = _arium.FindGameObject("Box").GetObject();
             Transform boxTransform = box.GetComponent<Transform>();
 
             Assert.AreEqual(Vector3.zero, boxTransform.position);
@@ -57,10 +58,25 @@ namespace Sample.Tests
             _arium.PerformAction(typeof(UnityPushObject), "Box");
             
             yield return new WaitForSeconds(1);
-            
             Assert.AreEqual(0, boxTransform.position.x);
             Assert.AreNotEqual(0, boxTransform.position.y);
             Assert.AreEqual(0, boxTransform.position.z);
+        }
+
+        [UnityTest]
+        public IEnumerator ShouldChangeAnimations()
+        {
+            GameObjectWrapper animatedObject = _arium.FindGameObject("AnimatedObject");
+            
+            yield return new WaitForSeconds(2);
+            
+           _arium.PerformAction(new UnityAnimationTrigger("ChangeState"), animatedObject);
+
+           yield return new WaitForSeconds(2);
+           
+           Assert.IsTrue(animatedObject.IsInAnimationState("State2"));
+
+           yield return null;
         }
     }
 }

@@ -8,7 +8,7 @@ namespace AriumFramework
     {
         private readonly GameObject _currentGameObject;
 
-        public GameObjectWrapper(string gameObjectName)
+        internal GameObjectWrapper(string gameObjectName)
         {
             if (string.IsNullOrEmpty(gameObjectName)) throw new ArgumentException("Empty game object name");
 
@@ -18,6 +18,13 @@ namespace AriumFramework
             {
                 throw new GameObjectNotFoundException(gameObjectName);
             }
+        }
+
+        public GameObjectWrapper(GameObject gameObject)
+        {
+            if (gameObject == null) throw new ArgumentNullException();
+            
+            _currentGameObject = gameObject;
         }
 
         public T GetComponent<T>()
@@ -35,6 +42,11 @@ namespace AriumFramework
         public override string ToString()
         {
             return _currentGameObject.name;
+        }
+
+        public GameObject GetObject()
+        {
+            return _currentGameObject;
         }
     }
 }
