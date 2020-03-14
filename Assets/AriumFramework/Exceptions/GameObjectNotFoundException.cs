@@ -4,9 +4,8 @@ namespace AriumFramework.Exceptions
 {
     public class GameObjectNotFoundException : Exception
     {
-        public GameObjectNotFoundException(string gameObjectName) : base("Gameobject " + gameObjectName + " not found")
+        public GameObjectNotFoundException(string gameObjectName) : base("GameObject " + gameObjectName + " not found")
         {
-            
         }
     }
 }

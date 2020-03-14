@@ -1,10 +1,12 @@
 ﻿using System;
+using UnityEngine;
 
 namespace AriumFramework.Exceptions
 {
     public class ComponentNotFoundException : Exception
     {
-        public ComponentNotFoundException(GameObjectWrapper gameObjectWrapper, Type type) : base(type + " component not found in " + gameObjectWrapper)
+        public ComponentNotFoundException(GameObject gameObject, Type type) : base(
+            type + " component not found in " + gameObject.name)
         {
         }
     }

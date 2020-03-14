@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using AriumFramework.Exceptions;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace AriumFramework
 {
     public class Arium
     {
-        private readonly Dictionary<string, GameObjectWrapper> _gameObjectCache =
-            new Dictionary<string, GameObjectWrapper>();
+        private readonly Dictionary<string, GameObject> _gameObjectCache =
+            new Dictionary<string, GameObject>();
 
         private readonly Dictionary<Type, IInteraction> _interactions;
 
@@ -26,47 +26,40 @@ namespace AriumFramework
         {
             PerformAction(interaction, FindGameObject(gameObjectName));
         }
-        
-        public void PerformAction(IInteraction interaction, GameObject gameObject)
-        {
-            PerformAction(interaction, new GameObjectWrapper(gameObject));
-        }
-        
-        public void PerformAction(Type interactionType, GameObject gameObject)
-        {
-            GameObjectWrapper objectWrapper = new GameObjectWrapper(gameObject);
-            PerformAction(interactionType, objectWrapper);
-        }
-        
+
         public void PerformAction(Type interactionType, string gameObjectName)
         {
             PerformAction(interactionType, FindGameObject(gameObjectName));
         }
-        
-        public void PerformAction(Type interactionType, GameObjectWrapper gameObjectWrapper)
+
+        public void PerformAction(Type interactionType, GameObject gameObject)
         {
-            if (!_interactions.ContainsKey(interactionType)) throw new ArgumentException(); // TODO: Add custom exception
-            
-            PerformAction(_interactions[interactionType], gameObjectWrapper);
+            if (!_interactions.ContainsKey(interactionType))
+                throw new InteractionNotFoundException(interactionType);
+
+            PerformAction(_interactions[interactionType], gameObject);
         }
-        
-        public void PerformAction(IInteraction interaction, GameObjectWrapper objectWrapper)
+
+        public void PerformAction(IInteraction interaction, GameObject gameObject)
         {
-            interaction.PerformAction(objectWrapper);
+            if (interaction == null) 
+                throw new ArgumentNullException(); 
+            
+            interaction.PerformAction(gameObject);
         }
 
         public T GetComponent<T>(string gameObjectName) where T : Component
         {
-            return FindGameObject(gameObjectName).GetComponent<T>();
+            return new GameObjectWrapper(FindGameObject(gameObjectName)).GetComponent<T>();
         }
 
-        public GameObjectWrapper FindGameObject(string gameObjectName)
+        public GameObject FindGameObject(string gameObjectName)
         {
             try
             {
                 if (!_gameObjectCache.ContainsKey(gameObjectName))
                 {
-                    _gameObjectCache.Add(gameObjectName, new GameObjectWrapper(gameObjectName));
+                    _gameObjectCache.Add(gameObjectName, new GameObjectWrapper(gameObjectName).GetObject());
                 }
 
                 return _gameObjectCache[gameObjectName];

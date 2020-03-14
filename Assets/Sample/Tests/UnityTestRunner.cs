@@ -2,7 +2,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using AriumFramework;
-using AriumFramework.Plugins.UnityInteractions;
+using AriumFramework.Plugins.UnityCore.Extensions;
+using AriumFramework.Plugins.UnityCore.Interactions;
+using JetBrains.Rider.Unity.Editor;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -31,7 +33,7 @@ namespace Sample.Tests
         public IEnumerator ShouldChangeTextOnButtonClick()
         {
             yield return new WaitForSeconds(2);
-            GameObjectWrapper display = _arium.FindGameObject("Display");
+            GameObject display = _arium.FindGameObject("Display");
 
 //            string display = _arium.GetText("Display");
 
@@ -49,7 +51,7 @@ namespace Sample.Tests
             const float force = 25;
             
             yield return new WaitForSeconds(2);
-            GameObject box = _arium.FindGameObject("Box").GetObject();
+            GameObject box = _arium.FindGameObject("Box");
             Transform boxTransform = box.GetComponent<Transform>();
 
             Assert.AreEqual(Vector3.zero, boxTransform.position);
@@ -66,7 +68,7 @@ namespace Sample.Tests
         [UnityTest]
         public IEnumerator ShouldChangeAnimations()
         {
-            GameObjectWrapper animatedObject = _arium.FindGameObject("AnimatedObject");
+            GameObject animatedObject = _arium.FindGameObject("AnimatedObject");
             
             yield return new WaitForSeconds(2);
             
@@ -75,8 +77,6 @@ namespace Sample.Tests
            yield return new WaitForSeconds(2);
            
            Assert.IsTrue(animatedObject.IsInAnimationState("State2"));
-
-           yield return null;
         }
     }
 }

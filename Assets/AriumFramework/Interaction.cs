@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using AriumFramework.Exceptions;
+using UnityEngine;
 using UnityEngine.Events;
 
 namespace AriumFramework
@@ -20,9 +21,14 @@ namespace AriumFramework
             _action = action;
         }
 
-        public void PerformAction(GameObjectWrapper gameObject)
+        public void PerformAction(GameObject gameObject)
         {
-            _action.Invoke(gameObject.GetComponent<T>());
+            T component = gameObject.GetComponent<T>();
+            if (component == null)
+            {
+                throw new ComponentNotFoundException(gameObject, typeof(T));
+            }
+            _action.Invoke(component);
         }
     }
 }

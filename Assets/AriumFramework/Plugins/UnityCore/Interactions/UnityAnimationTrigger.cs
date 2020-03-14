@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace AriumFramework.Plugins.UnityInteractions
+namespace AriumFramework.Plugins.UnityCore.Interactions
 {
     public class UnityAnimationTrigger: Interaction<Animator>
     {

@@ -20,7 +20,7 @@ namespace AriumFramework
             }
         }
 
-        public GameObjectWrapper(GameObject gameObject)
+        internal GameObjectWrapper(GameObject gameObject)
         {
             if (gameObject == null) throw new ArgumentNullException();
             
@@ -33,7 +33,7 @@ namespace AriumFramework
             
             if (component == null)
             {
-                throw new ComponentNotFoundException(this, typeof(T));
+                throw new ComponentNotFoundException(GetObject(), typeof(T));
             }
             
             return component;
@@ -41,7 +41,7 @@ namespace AriumFramework
 
         public override string ToString()
         {
-            return _currentGameObject.name;
+            return _currentGameObject.scene + " --- " + _currentGameObject.name;
         }
 
         public GameObject GetObject()

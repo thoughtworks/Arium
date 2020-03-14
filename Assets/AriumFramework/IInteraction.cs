@@ -1,7 +1,9 @@
-﻿namespace AriumFramework
+﻿using UnityEngine;
+
+namespace AriumFramework
 {
     public interface IInteraction
     {
-        void PerformAction(GameObjectWrapper gameObject);
+        void PerformAction(GameObject gameObject);
     }
 }

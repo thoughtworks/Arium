@@ -1,6 +1,6 @@
 ﻿using UnityEngine.UI;
 
-namespace AriumFramework.Plugins.UnityInteractions
+namespace AriumFramework.Plugins.UnityCore.Interactions
 {
     public class UnityButtonClick : Interaction<Button>
     {
