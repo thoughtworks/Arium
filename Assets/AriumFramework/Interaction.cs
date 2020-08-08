@@ -4,7 +4,7 @@ using UnityEngine.Events;
 
 namespace AriumFramework
 {
-    public abstract class Interaction<T> : IInteraction where T : Component
+    public abstract class Interaction<T> : IInteraction //where T : Component
     {
         private UnityAction<T> _action;
 
