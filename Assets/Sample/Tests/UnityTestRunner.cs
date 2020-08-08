@@ -43,14 +43,14 @@ namespace Sample.Tests
         public IEnumerator ShouldPushTheBoxUp()
         {
             const float force = 25;
-            const string BoxObjectName = "Box";
+            const string boxObjectName = "Box";
             yield return new WaitForSeconds(2);
             
-            Transform boxTransform = _arium.GetComponent<Transform>(BoxObjectName);
+            Transform boxTransform = _arium.GetComponent<Transform>(boxObjectName);
             Assert.AreEqual(Vector3.zero, boxTransform.position);
             UnityPushObject.Force = Vector3.up * force;
             
-            _arium.PerformAction(new UnityPushObject(), BoxObjectName);
+            _arium.PerformAction(new UnityPushObject(), boxObjectName);
             
             yield return new WaitForSeconds(1);
             Assert.AreEqual(0, boxTransform.position.x);
@@ -73,17 +73,17 @@ namespace Sample.Tests
         }
 
         [UnityTest]
-        public IEnumerator shouldDrag()
+        public IEnumerator ShouldDrag()
         {
-            const string Slider = "Slider";
-            const float Half = 0.5f;
+            const string slider = "Slider";
+            const float half = 0.5f;
             
-            Transform SliderTransform = _arium.GetComponent<Transform>(Slider);
-            var rect = _arium.GetComponent<RectTransform>(Slider).rect;
+            Transform sliderTransform = _arium.GetComponent<Transform>(slider);
+            var rect = _arium.GetComponent<RectTransform>(slider).rect;
             
-            _arium.PerformAction(new UnityDrag(new Vector2(SliderTransform.position.x + Half * rect.width, SliderTransform.position.y)), Slider);
+            _arium.PerformAction(new UnityDrag(new Vector2(sliderTransform.position.x + half * rect.width, sliderTransform.position.y)), slider);
             yield return new WaitForSeconds(2);  
-            Assert.AreEqual(1,_arium.GetComponent<Slider>(Slider));
+            Assert.AreEqual(1,_arium.GetComponent<Slider>(slider));
 
         }
     }
