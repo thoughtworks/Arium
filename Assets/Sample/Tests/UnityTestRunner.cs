@@ -83,7 +83,7 @@ namespace Sample.Tests
             
             _arium.PerformAction(new UnityDrag(new Vector2(sliderTransform.position.x + half * rect.width, sliderTransform.position.y)), slider);
             yield return new WaitForSeconds(2);  
-            Assert.AreEqual(1,_arium.GetComponent<Slider>(slider));
+            Assert.AreEqual(1,_arium.GetComponent<Slider>(slider).value);
 
         }
     }
