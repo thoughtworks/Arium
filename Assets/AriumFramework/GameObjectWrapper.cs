@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace AriumFramework
 {
-    public class GameObjectWrapper
+    internal class GameObjectWrapper
     {
         private readonly GameObject _currentGameObject;
 

@@ -4,7 +4,7 @@ using UnityEngine.Events;
 
 namespace AriumFramework
 {
-    public abstract class Interaction<T> : IInteraction //where T : Component
+    public abstract class Interaction<T> : IInteraction
     {
         private UnityAction<T> _action;
 
@@ -12,6 +12,7 @@ namespace AriumFramework
         {
             _action = action;
         }
+        
         protected Interaction()
         {
         }
@@ -24,10 +25,12 @@ namespace AriumFramework
         public void PerformAction(GameObject gameObject)
         {
             T component = gameObject.GetComponent<T>();
+            
             if (component == null)
             {
                 throw new ComponentNotFoundException(gameObject, typeof(T));
             }
+            
             _action.Invoke(component);
         }
     }

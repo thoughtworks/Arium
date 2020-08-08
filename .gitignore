@@ -139,6 +139,10 @@ sysinfo.txt
 
 # End of https://www.gitignore.io/api/rider,unity
 
+# MacOS
+.DS_Store
+*.DS_Store
+
 # ThinkReality
 Assets/ThinkReality
 Assets/ThinkReality.meta
