@@ -38,19 +38,15 @@ To use Arium framework, Arium should be instantiated inside the test class as me
 
 #### syntax:
 
-    <code>
         Arium _arium = new Arium();
-    </code>
-
+   
 ### Find GameObjects:
 
 To find a Gameobject from the Unity Scene hierarchy using its name.
 
 #### Syntax:
-
-    <code>
+    
         _arium.FindGameObject("Display");
-    </code>
     
 ##### Paremeters:
     String - Name of the Gameobject.
@@ -64,9 +60,7 @@ To retrieve the components attached to a GameObject
 
 #### Syntax:
 
-    <code>
         _arium.GetComponent<Name of the component here>(Name of the GameObject here)
-    </code>
     
 ##### Paremeters:
     String - Name of the Gameobject.
@@ -82,9 +76,7 @@ To interact with the UnityGameobjects on runtime.
 #### syntax:
  To click on a particular gameobject.
  
-    <code>
         _arium.PerformAction(new UnityPointerClick(), "Name of the gameobject here");
-    </code>
     
 ##### Paremeters:
     Intercation - Type of the interaction need to performed on a gameobject, in this case it is UnityPointerClick()
