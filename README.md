@@ -6,12 +6,12 @@ Arium is an automation testing framework for 3D applications built on top of Uni
 ie., Unity Editor,Android,UWP etc..
 
 Arium comes with the basic Unity interactions:
-    Animator
-    DragHandler
-    PointerClickHandler
-    PointerEnterHandler
-    PointerExitHandler
-    RigidBody
+- Animator
+- DragHandler
+- PointerClickHandler
+- PointerEnterHandler
+- PointerExitHandler
+- RigidBody
 
 ## Setup:
 1. Download Arium Unity Package https://github.com/Jayachandranaug29/arium/releases/download/untagged-0a6b6dac1fafc0295a87/AriumWithSample.unitypackage
