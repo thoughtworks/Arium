@@ -4,13 +4,24 @@ namespace AriumFramework.Plugins.UnityCore.Interactions
 {
     public class UnityPointerExit : Interaction<IPointerExitHandler>
     {
-        public UnityPointerExit() : base(FocusOut)
+        private PointerEventData _eventData;
+        public UnityPointerExit()
         {
+            SetAction(FocusOut);
         }
 
-        private static void FocusOut(IPointerExitHandler gameObject)
+        public UnityPointerExit(PointerEventData eventData)
         {
-            gameObject.OnPointerExit(new PointerEventData(EventSystem.current));
+            SetAction(FocusOut);
+            _eventData = eventData;
+        }
+
+        private void FocusOut(IPointerExitHandler gameObject)
+        {
+            if (_eventData == null) 
+                _eventData = new PointerEventData(EventSystem.current);
+            
+            gameObject.OnPointerExit(_eventData);
         }
     }
 }

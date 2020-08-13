@@ -4,13 +4,25 @@ namespace AriumFramework.Plugins.UnityCore.Interactions
 {
     public class UnityPointerClick : Interaction<IPointerClickHandler>
     {
-        public UnityPointerClick() : base(Click)
+        private PointerEventData _eventData;
+        
+        public UnityPointerClick()
         {
+            SetAction(Click);
         }
 
-        private static void Click(IPointerClickHandler gameObject)
+        public UnityPointerClick(PointerEventData eventData)
         {
-            gameObject.OnPointerClick(new PointerEventData(EventSystem.current));
+            SetAction(Click);
+            _eventData = eventData;
+        }
+
+        private void Click(IPointerClickHandler gameObject)
+        {
+            if (_eventData == null) 
+                _eventData = new PointerEventData(EventSystem.current);
+            
+            gameObject.OnPointerClick(_eventData);
         }
     }
 }
