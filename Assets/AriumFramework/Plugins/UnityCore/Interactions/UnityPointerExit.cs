@@ -5,6 +5,7 @@ namespace AriumFramework.Plugins.UnityCore.Interactions
     public class UnityPointerExit : Interaction<IPointerExitHandler>
     {
         private PointerEventData _eventData;
+        
         public UnityPointerExit()
         {
             SetAction(FocusOut);

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace Sample.Scripts
+namespace Samples.AriumSample.Scripts
 {
     public class SampleScripts : MonoBehaviour
     {

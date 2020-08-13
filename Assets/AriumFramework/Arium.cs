@@ -9,7 +9,6 @@ namespace AriumFramework
     {
         private readonly Dictionary<string, GameObject> _gameObjectCache =
             new Dictionary<string, GameObject>();
-        
 
         public void PerformAction(IInteraction interaction, string gameObjectName)
         {
@@ -35,7 +34,9 @@ namespace AriumFramework
             {
                 if (!_gameObjectCache.ContainsKey(gameObjectName))
                 {
-                    _gameObjectCache.Add(gameObjectName, new GameObjectWrapper(gameObjectName).GetObject());
+                    GameObjectWrapper wrapper = new GameObjectWrapper(gameObjectName);
+                    wrapper.AddTracker(RemoveObjectFromCache);
+                    _gameObjectCache.Add(gameObjectName, wrapper.GetObject());
                 }
 
                 return _gameObjectCache[gameObjectName];
@@ -45,6 +46,11 @@ namespace AriumFramework
                 Console.WriteLine(e + " Could not Find GameObject");
                 throw;
             }
+        }
+
+        private void RemoveObjectFromCache(string key)
+        {
+            _gameObjectCache.Remove(key);
         }
     }
 }

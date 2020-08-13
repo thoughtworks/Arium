@@ -20,13 +20,13 @@ Arium comes with the basic Unity interactions:
 4. Select all and click on Import Button.
 
 ## Running Sample Test cases:
-1. Open UnitySampleScene in the project hierarchy- Sample >> Scenes >> UnitySampleScene.
+1. Open UnitySampleScene in the project hierarchy - Samples >> AriumSample >> Scenes >> UnitySampleScene.
 2. Open Unity Build settings - File >> Build Settings
 3. Click on Add Open Scenes.
     Note: Make sure the UnitySampleScene is selected 
 4. Close Unity build settings window
 5. Open TestRunner window in Unity - Window >> General >> TestRunner.
-6. Expand the Arium hierarchy in the Test Runner - Arium >> Tests.dll >> Sample >> Tests >> UnityTestRunner
+6. Expand the Arium hierarchy in the Test Runner - Arium >> AriumSampleTests.dll >> Samples >> AriumSample >> UnityTestRunner
 7. Select PlayMode Tests and Right click on UnityTestRunner and Click on RUN.
 8. Test Cases will start executing and results will be displayed on the TestRunner.
 
@@ -38,15 +38,14 @@ To use Arium framework, Arium should be instantiated inside the test class as me
 
 #### syntax:
 
-        Arium _arium = new Arium();
+    Arium _arium = new Arium();
    
 ### Find GameObjects:
 
 To find a Gameobject from the Unity Scene hierarchy using its name.
 
 #### Syntax:
-    
-        _arium.FindGameObject("Display");
+    _arium.FindGameObject("Display");
     
 ##### Paremeters:
     String - Name of the Gameobject.
@@ -59,8 +58,7 @@ To find a Gameobject from the Unity Scene hierarchy using its name.
 To retrieve the components attached to a GameObject
 
 #### Syntax:
-
-        _arium.GetComponent<Name of the component here>(Name of the GameObject here)
+    _arium.GetComponent<Name of the component here>(Name of the GameObject here)
     
 ##### Paremeters:
     String - Name of the Gameobject.
@@ -74,13 +72,13 @@ To retrieve the components attached to a GameObject
 To interact with the UnityGameobjects on runtime.
 
 #### syntax:
- To click on a particular gameobject.
+To click on a particular gameobject.
  
-        _arium.PerformAction(new UnityPointerClick(), "Name of the gameobject here");
+    _arium.PerformAction(new UnityPointerClick(), "Name of the gameobject here");
     
 ##### Paremeters:
     Intercation - Type of the interaction need to performed on a gameobject, in this case it is UnityPointerClick()
     String - Name of the Gameobject.
 
 # Class Diagram
-![](ClassDiagram.jpg)
+![Class Diagram](ClassDiagram.jpg)

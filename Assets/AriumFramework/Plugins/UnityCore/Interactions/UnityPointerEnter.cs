@@ -5,6 +5,7 @@ namespace AriumFramework.Plugins.UnityCore.Interactions
     public class UnityPointerEnter : Interaction<IPointerEnterHandler>
     {
         private PointerEventData _eventData;
+        
         public UnityPointerEnter() 
         {
             SetAction(FocusIn);

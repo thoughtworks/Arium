@@ -5,11 +5,11 @@ namespace AriumFramework.Plugins.UnityCore.Interactions
 {
     public class UnityDrag : Interaction<IDragHandler>
     {
-        private readonly Vector2 _position;
+        private readonly Vector2 _screenPosition;
         
-        public UnityDrag(Vector2 position)
+        public UnityDrag(Vector2 screenPosition)
         {
-            _position = position;
+            _screenPosition = screenPosition;
             SetAction(Drag);
         }
 
@@ -17,7 +17,7 @@ namespace AriumFramework.Plugins.UnityCore.Interactions
         {
             gameObject.OnDrag(new PointerEventData(EventSystem.current)
             {
-                position = _position
+                position = _screenPosition
             });
         }
     }
