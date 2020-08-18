@@ -1,3 +1,4 @@
+![Class Diagram](Logo.png)
 # Arium
 Automation Testing Framework for AR(Unity) Applications.
 
@@ -12,6 +13,9 @@ Arium comes with the basic Unity interactions:
 - PointerEnterHandler
 - PointerExitHandler
 - RigidBody
+
+## Releated Articles:
+[Arium - An Automation framework for Unity/XR](https://medium.com/@neelarghyamandal/arium-an-automation-framework-for-unity-xr-d51ed608e8b0)
 
 ## Setup:
 1. Download Arium Unity Package https://github.com/Jayachandranaug29/arium/releases/download/untagged-0a6b6dac1fafc0295a87/AriumWithSample.unitypackage
