@@ -18,7 +18,7 @@ Arium comes with the basic Unity interactions:
 [Arium - An Automation framework for Unity/XR](https://medium.com/@neelarghyamandal/arium-an-automation-framework-for-unity-xr-d51ed608e8b0)
 
 ## Setup:
-1. Download Arium Unity Package https://github.com/Jayachandranaug29/arium/releases/download/untagged-0a6b6dac1fafc0295a87/AriumWithSample.unitypackage
+1. Download Arium Unity Package https://github.com/xrpractice/Arium/releases
 2. Open your Unity project which needs to be automated.
 3. Double click on the downloaded Unity package.
 4. Select all and click on Import Button.
