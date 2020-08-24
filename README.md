@@ -21,6 +21,9 @@ Arium comes with the basic Unity interactions:
 ## Contributors
 ![ThoughtWorks](ThoughtworksLogo.png)
 Maintained by <b>ThoughtWorks</b><br>
+##### Creators
+- [Neelarghya Mandal](https://github.com/Neelarghya/)
+- [Jayachandran S](https://github.com/Jayachandranaug29/)
 
 ## Releated Articles:
 [Arium - An Automation framework for Unity/XR](https://medium.com/@neelarghyamandal/arium-an-automation-framework-for-unity-xr-d51ed608e8b0)
