@@ -18,6 +18,10 @@ Arium comes with the basic Unity interactions:
 <b>© 2020 ThoughtWorks, Inc.</b> <br>
 [Apache-2.0 License](LICENSE)
 
+## Contributors
+![ThoughtWorks](ThoughtworksLogo.png)
+Maintained by <b>ThoughtWorks</b><br>
+
 ## Releated Articles:
 [Arium - An Automation framework for Unity/XR](https://medium.com/@neelarghyamandal/arium-an-automation-framework-for-unity-xr-d51ed608e8b0)
 
