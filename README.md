@@ -16,7 +16,7 @@ Arium comes with the basic Unity interactions:
 
 ## License
 <b>© 2020 ThoughtWorks, Inc.</b> <br>
-[Apache-2.0 License](LICENSE)
+[AGPL-3.0 License](LICENSE)
 
 ## Contributors
 ![ThoughtWorks](ThoughtworksLogo.png)
