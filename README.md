@@ -20,7 +20,7 @@ Arium comes with the basic Unity interactions:
 
 ## Contributors
 ![ThoughtWorks](ThoughtworksLogo.png)
-Maintained by <b>ThoughtWorks</b><br>
+Maintained by <b>[ThoughtWorks](http://thoughtworks.com/)</b><br>
 ##### Creators
 - [Neelarghya Mandal](https://github.com/Neelarghya/)
 - [Jayachandran S](https://github.com/Jayachandranaug29/)
