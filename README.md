@@ -1,6 +1,6 @@
 ![Logo](Logo.png)
 # Arium
-[Automation Testing Framework for AR(Unity) Applications.](https://medium.com/xrpractices)
+[Automation Testing Framework for AR(Unity) Applications.](https://medium.com/@neelarghyamandal/arium-an-automation-framework-for-unity-xr-d51ed608e8b0)
 
 ## About Arium:
 Arium is an automation testing framework for 3D applications built on top of Unity. It helps the Developers/QA to run functional tests on 3D apps on any platforms.
