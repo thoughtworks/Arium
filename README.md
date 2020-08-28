@@ -1,6 +1,6 @@
 ![Logo](Logo.png)
 # Arium
-[Automation Testing Framework for AR(Unity) Applications.](https://medium.com/@neelarghyamandal/arium-an-automation-framework-for-unity-xr-d51ed608e8b0)
+Automation Testing Framework for AR(Unity) Applications.
 
 ## About Arium:
 Arium is an automation testing framework for 3D applications built on top of Unity. It helps the Developers/QA to run functional tests on 3D apps on any platforms.
@@ -29,10 +29,10 @@ Maintained by <b>[ThoughtWorks](http://thoughtworks.com/)</b><br>
 - [Kuldeep Singh](https://github.com/thinkuldeep) (Reviewer)
 
 ## Releated Articles:
-[Arium - An Automation framework for Unity/XR](https://medium.com/@neelarghyamandal/arium-an-automation-framework-for-unity-xr-d51ed608e8b0)
+[Arium - An Automation framework for Unity/XR](https://medium.com/xrpractices/arium-an-automation-framework-for-unity-xr-d51ed608e8b0)
 
 ## Setup:
-1. Download Arium Unity Package https://github.com/xrpractice/Arium/releases
+1. Download Arium Unity Package https://github.com/thoughtworks/Arium/releases
 2. Open your Unity project which needs to be automated.
 3. Double click on the downloaded Unity package.
 4. Select all and click on Import Button.
