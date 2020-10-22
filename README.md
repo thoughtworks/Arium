@@ -100,3 +100,6 @@ To click on a particular gameobject.
 
 # Class Diagram
 ![Class Diagram](ClassDiagram.jpg)
+
+# Contribution to Arium:
+To contribute to Arium, follow the steps [contributor](contributing.md)
