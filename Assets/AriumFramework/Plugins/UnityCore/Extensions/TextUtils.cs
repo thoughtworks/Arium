@@ -24,6 +24,11 @@ namespace AriumFramework.Plugins.UnityCore.Extensions
             return GetGameObjectSize(gameObject).width;
         }
         
+        public static float GetGameObjectHeight(this GameObject gameObject)
+        {
+            return GetGameObjectSize(gameObject).height;
+        }
+        
         public static Rect GetGameObjectSize(GameObject gameObject)
         {
             return gameObject.GetComponent<RectTransform>().rect;
