@@ -18,5 +18,15 @@ namespace AriumFramework.Plugins.UnityCore.Extensions
         {
             return new GameObjectWrapper(gameObject).GetComponent<Image>().sprite.name;
         }
+        
+        public static float GetGameObjectWidth(this GameObject gameObject)
+        {
+            return GetGameObjectSize(gameObject).width;
+        }
+        
+        public static Rect GetGameObjectSize(GameObject gameObject)
+        {
+            return gameObject.GetComponent<RectTransform>().rect;
+        }
     }
 }
