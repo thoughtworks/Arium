@@ -9,5 +9,14 @@ namespace AriumFramework.Plugins.UnityCore.Extensions
         {
             return new GameObjectWrapper(gameObject).GetComponent<Text>().text;
         }
+        public static bool IsGameObejectColliderEnabled(this GameObject gameObject)
+        {
+            return new GameObjectWrapper(gameObject).GetComponent<BoxCollider>().enabled;
+        }
+        
+        public static string GetImageSourceName(this GameObject gameObject)
+        {
+            return new GameObjectWrapper(gameObject).GetComponent<Image>().sprite.name;
+        }
     }
 }
