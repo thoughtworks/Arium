@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using AriumFramework.Exceptions;
 using UnityEngine;
 using UnityEngine.Events;
@@ -10,14 +11,15 @@ namespace AriumFramework
         private readonly GameObject _currentGameObject;
         private readonly string _originalName;
 
-        internal GameObjectWrapper(string gameObjectName)
+        internal GameObjectWrapper(string gameObjectName, bool includeInactive = false)
         {
             _originalName = gameObjectName;
             if (string.IsNullOrEmpty(_originalName)) 
                 throw new ArgumentException("Empty game object name");
 
-            _currentGameObject = GameObject.Find(_originalName);
-
+            _currentGameObject = UnityEngine.Object.FindObjectsOfType<GameObject>(includeInactive).
+                                                    FirstOrDefault(gameObject => gameObject.name == gameObjectName);
+            
             if (_currentGameObject == null)
             {
                 throw new GameObjectNotFoundException(_originalName);
