@@ -28,13 +28,13 @@ namespace AriumFramework
             return new GameObjectWrapper(FindGameObject(gameObjectName)).GetComponent<T>();
         }
 
-        public GameObject FindGameObject(string gameObjectName)
+        public GameObject FindGameObject(string gameObjectName, bool includeInactive = false)
         {
             try
             {
                 if (!_gameObjectCache.ContainsKey(gameObjectName))
                 {
-                    GameObjectWrapper wrapper = new GameObjectWrapper(gameObjectName);
+                    GameObjectWrapper wrapper = new GameObjectWrapper(gameObjectName,includeInactive);
                     wrapper.AddTracker(RemoveObjectFromCache);
                     _gameObjectCache.Add(gameObjectName, wrapper.GetObject());
                 }

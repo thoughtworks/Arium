@@ -63,10 +63,12 @@ To use Arium framework, Arium should be instantiated inside the test class as me
 To find a Gameobject from the Unity Scene hierarchy using its name.
 
 #### Syntax:
-    _arium.FindGameObject("Display");
+    _arium.FindGameObject("Display"); //To find "Display" gameobject but doesn't include inactive/deactive gameobjects in search. 
+    _arium.FindGameObject("Display", true); //To find "Display" gameObject and include inactive/deactive gameobjects in search.
     
 ##### Paremeters:
     String - Name of the Gameobject.
+    bool - flag to include inactive/deactive GameObject in search (by default false).
     
 ##### Return type:
     UnityEngine.GameObject
