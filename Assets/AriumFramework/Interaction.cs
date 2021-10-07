@@ -24,14 +24,17 @@ namespace AriumFramework
 
         public void PerformAction(GameObject gameObject)
         {
-            T component = gameObject.GetComponent<T>();
+            var components = gameObject.GetComponents<T>();
             
-            if (component == null)
+            if (components.Length == 0)
             {
                 throw new ComponentNotFoundException(gameObject, typeof(T));
             }
-            
-            _action.Invoke(component);
+
+            foreach (var component in components)
+            {
+                _action?.Invoke(component);
+            }
         }
     }
 }
