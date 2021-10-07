@@ -91,15 +91,51 @@ To retrieve the components attached to a GameObject
 
 To interact with the UnityGameobjects on runtime.
 
-#### syntax:
+#### Syntax:
 To click on a particular gameobject.
  
     _arium.PerformAction(new UnityPointerClick(), "Name of the gameobject here");
     
-##### Paremeters:
-    Intercation - Type of the interaction need to performed on a gameobject, in this case it is UnityPointerClick()
+##### Parameters:
+    Interaction - Type of the interaction need to be performed on a gameobject, in this case it is UnityPointerClick()
     String - Name of the Gameobject.
+    
+## Calling input methods on components based on EventSystem handled interfaces:
+UnityEventSystemInteraction class is a static generic class which invoke functions on components based out of EventSystem Handled interfaces eg IPointerClickHandler in case of Unity UI Button Component. It containes 2 methods which can be called as follows:
 
+### Method 1
+     
+     UnityEventSystemInteraction<T>.PerformAction("GameObject Name");
+     UnityEventSystemInteraction<T>.PerformAction("GameObject Name", new PointerEventData(EventSystem.current));
+     
+     T : Interface based on IEventSystemHandler eg IPointerClickHandler, IDragHandler, IPointerDownHandler
+     GameObject Name - Name of the GameObject on which action needs to be performed.
+     AbstractEventData - Abstract base class for input event data by Unity
+     
+### Method 2    
+     
+     UnityEventSystemInteraction<T>.PerformAction(GameObjectRef);
+     UnityEventSystemInteraction<T>.PerformAction(GameObjectRef, new PointerEventData(EventSystem.current));
+     
+     T : Interface based on IEventSystemHandler eg IPointerClickHandler, IDragHandler, IPointerDownHandler
+     GameObject Name - Name of the GameObject on which action needs to be performed.
+     AbstractEventData - Abstract base class for input event data by Unity
+    
+
+### Example:
+
+     //Call IPointerClick methods on components attached on GameObject
+     UnityEventSystemInteraction<IPointerClickHandler>.PerformAction("GameObject Name");
+     
+     //Call IPointerClick methods on components attached on gameObjectRef
+     UnityEventSystemInteraction<IPointerClickHandler>.PerformAction(gameObjectRef);
+     
+     //Call IDragHandler methods on the specified GameObject Reference passing Pointer Position in PointerEventData()
+     UnityEventSystemInteraction<IDragHandler>.PerformAction(gameObjectRef, new PointerEventData(EventSystem.current)
+            { 
+                position = new Vector2(positionXOfDrag,positionYOfDrag),
+            }); 
+   
 # Class Diagram
 ![Class Diagram](ClassDiagram.jpg)
 
