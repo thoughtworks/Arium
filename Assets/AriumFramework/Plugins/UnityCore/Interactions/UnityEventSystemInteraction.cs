@@ -19,7 +19,7 @@ namespace AriumFramework.Plugins.UnityCore.Interactions
 
             if (components.Length == 0)
             {
-                throw new ComponentNotFoundException(gameObject, typeof(T));
+                throw new InteractionNotFoundException(typeof(T));
             }
 
             var methodInfos = typeof(T).GetMethods();
