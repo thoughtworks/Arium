@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace AriumFramework.Plugins.UnityCore.Extensions
@@ -32,6 +33,11 @@ namespace AriumFramework.Plugins.UnityCore.Extensions
         public static Rect GetGameObjectSize(GameObject gameObject)
         {
             return gameObject.GetComponent<RectTransform>().rect;
+        }
+        
+        public static Boolean IsGameObjectInteractable(GameObject gameObject)
+        {
+            return gameObject.GetComponent<Button>().IsInteractable();
         }
     }
 }
