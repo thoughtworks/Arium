@@ -1925,7 +1925,7 @@ GameObject:
   - component: {fileID: 803021649}
   - component: {fileID: 803021648}
   m_Layer: 5
-  m_Name: Change Position
+  m_Name: ChangePosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
