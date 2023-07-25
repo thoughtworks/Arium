@@ -6,9 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Samples/AriumSample/Scenes/UnitySampleScene.unity
-    guid: 52e6639d73cfbe148ae351e4e50fc2ba
-  - enabled: 1
-    path: Assets/Sample/Scenes/ThinkRealitySampleScene.unity
-    guid: eb75a0c352554e7419bfb3ffcf8c44f9
+    path: Assets/Samples/AriumSample/Scenes/SampleScene.unity
+    guid: 35b7d7c80ca970f40a04c9b76e8d0f11
   m_configObjects: {}
